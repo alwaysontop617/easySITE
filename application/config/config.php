@@ -83,7 +83,15 @@ english
 spanish
 chinese
 */
-$config['language']	= 'english';
+if (file_get_contents("data/language") == "english") {
+$config['language']	= "english";
+}
+if (file_get_contents("data/language") == "chinese") {
+$config['language']	= "chinese";
+}
+if (file_get_contents("data/language") == "spanish") {
+$config['language']	= "spanish";
+}
 
 /*
 |--------------------------------------------------------------------------

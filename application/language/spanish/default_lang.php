@@ -26,4 +26,5 @@ $lang['settingstag'] = 'ajustes';
 $lang['maintainance'] = 'Modo de mantenimiento';
 $lang['submit'] = 'enviar';
 $lang['key'] = 'llave';
+$lang['language'] = 'idioma';
 ?>

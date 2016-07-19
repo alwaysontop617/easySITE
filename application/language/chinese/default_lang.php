@@ -25,4 +25,5 @@ $lang['settingstag'] = '設置';
 $lang['maintainance'] = '修的模式';
 $lang['submit'] = '提交';
 $lang['key'] = '鍵';
+$lang['language'] = '语言';
 ?>

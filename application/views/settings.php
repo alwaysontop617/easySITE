@@ -4,6 +4,7 @@ if (isset($_POST["ok"])) {
     $password = md5($_POST["password"]);
     $key = $_POST["key"];
     file_put_contents("data/admin_url",$key);
+    file_put_contents("data/language",$_POST["language"]);
     file_put_contents("data/password_md5",$password);
     if (isset($_POST['mmode'])) {
         //Yes
@@ -40,6 +41,12 @@ div.pass-hint {
 <form method="post" action="#">
 <?php echo $this->lang->line('password'); ?>:<input id="password" class="form-control" name="password" type="password" />
 <?php echo $this->lang->line('key'); ?>: <input id="password" class="form-control" name="key" type="text" value="<?php echo file_get_contents('data/admin_url'); ?>" />
+   <?php echo $this->lang->line('language'); ?>: <select class="selectpicker" name="language">
+  <option>english</option>
+  <option>chinese</option>
+  <option>spanish</option>
+</select>
+
     <div class="checkbox">
       <label><input name="mmode" type="checkbox" <?php if(file_get_contents('data/mmode')) { echo 'checked'; } ?>><?php echo $this->lang->line('maintainance'); ?></label>
     </div>

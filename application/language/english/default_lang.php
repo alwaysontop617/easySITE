@@ -25,4 +25,5 @@ $lang['settingstag'] = 'Settings';
 $lang['maintainance'] = 'Maintainance Mode';
 $lang['submit'] = 'submit';
 $lang['key'] = 'key';
+$lang['language'] = 'language';
 ?>
