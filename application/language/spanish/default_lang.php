@@ -27,4 +27,6 @@ $lang['maintainance'] = 'Modo de mantenimiento';
 $lang['submit'] = 'enviar';
 $lang['key'] = 'llave';
 $lang['language'] = 'idioma';
+$lang["bkup_title"] = '
+Las copias de seguridad mantienen su sitio web seguro';
 ?>

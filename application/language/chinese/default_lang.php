@@ -26,4 +26,5 @@ $lang['maintainance'] = '修的模式';
 $lang['submit'] = '提交';
 $lang['key'] = '鍵';
 $lang['language'] = '语言';
+$lang['bkup_title'] = '备份让您的网站安全';
 ?>

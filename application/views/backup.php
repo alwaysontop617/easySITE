@@ -49,8 +49,8 @@ die();
 }
 ?>
 
-<h1>Backups keep your website safe</h1>
-Backups are great because the keep your website safe and copied.<br><br>
+<h1><?php echo $this->lang->line('bkup_title'); ?></h1>
+
 <form method="post" action="#">
 <center><button type="submit" name="ok" class="btn btn-primary"><?php echo $this->lang->line('submit'); ?></button></center>
 </form>

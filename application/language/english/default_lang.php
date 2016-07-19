@@ -26,4 +26,5 @@ $lang['maintainance'] = 'Maintainance Mode';
 $lang['submit'] = 'submit';
 $lang['key'] = 'key';
 $lang['language'] = 'language';
+$lang['bkup_title'] = 'Backups keep your website safe';
 ?>
