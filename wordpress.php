@@ -126,6 +126,10 @@ die();
     <p><?php 
     if(file_exists("wp-admin") && file_exists("wp-content") && file_exists("wp-includes")) {
         echo "We detected you are using wordpress. You may continue to install the system.";
+        if (!file_exists("install.lock")) {
+            echo "In order to use the installation files, you must create a file named install.lock. This was created to put a stop to hackers.";
+            die();
+        }
     } else {
         echo "This system cannot find wordpress unsupported, please place this file in your wordpress directory!!";
         die();
