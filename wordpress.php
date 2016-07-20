@@ -6,6 +6,10 @@ This file will install EasySite.
 $downloadlocation = "https://github.com/alwaysontop617/easySITE/archive/master.zip";
 $folder = "easySITE-master/";
 if (isset($_POST["p"])) {
+    if (!is_writable("index.php")) {
+        echo "Cannot write to directory, please check permissions";
+        die();
+    }
   //start the install
   echo "Grabbing Installation files from ".$downloadlocation;
   file_put_contents("master.zip",file_get_contents($downloadlocation));
