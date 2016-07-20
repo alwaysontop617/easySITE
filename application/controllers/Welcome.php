@@ -27,7 +27,7 @@ class Welcome extends CI_Controller {
 	}
 	public function index()
 	{
-
+$this->load->view('functions.php');
 		if (isset($_GET[file_get_contents("data/admin_url")])) {
 		//$this->load->view('bootstrap');
 		$this->load->view('top_modal');
