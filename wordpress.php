@@ -6,6 +6,20 @@ This file will install EasySite.
 $downloadlocation = "https://github.com/alwaysontop617/easySITE/archive/master.zip";
 $folder = "easySITE-master/";
 if (isset($_POST["p"])) {
+    
+    if(file_exists("wp-admin") && file_exists("wp-content") && file_exists("wp-includes")) {
+      
+        if (!file_exists("install.lock")) {
+           
+            die();
+        }
+    } else {
+       
+        die();
+    }
+    
+  
+    
     if (!is_writable("index.php")) {
         echo "Cannot write to directory, please check permissions";
         die();
