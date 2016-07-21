@@ -1,3 +1,7 @@
+<?php
+$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+?>
+<a href="<?php echo $actual_link; ?>&p=searchplugin"><h3><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></h3></a>   
   <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 echo '<h1>' . $this->lang->line('features') . '</h1>';
@@ -19,6 +23,7 @@ if (isset($_POST["deactivate"])) {
 }
 }
 ?>
+
  <table class="table table-hover">
     <thead>
       <tr>
@@ -69,4 +74,4 @@ foreach ($folders as $plugin) {
  
     </tbody>
   </table>
-                
+             

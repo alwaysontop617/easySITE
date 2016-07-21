@@ -1,5 +1,4 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
@@ -34,6 +33,7 @@ $this->load->view('functions.php');
 $this->load->library('session');
  if(!$this->session->userdata('logged_in'))
    {
+   $_SESSION["in"] = "yes";
   $this->load->view('login_system');
    } else {
    	$this->load->view('panel');
@@ -44,6 +44,7 @@ $this->load->library('session');
    
 		$this->load->view('bottom_modal');
 		} else {
+	
 			$this->load->view("bootstrap");
 		}
 			

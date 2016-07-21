@@ -1,7 +1,9 @@
 <?php
+session_start();
 if (isset($_POST["exit"])) {
       $this->session->unset_userdata('logged_in');
    session_destroy();
+   unset($_SESSION['in']);
   redirect($_SERVER['REQUEST_URI'], 'refresh'); 
   
 }
