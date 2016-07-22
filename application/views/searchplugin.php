@@ -1,6 +1,46 @@
 <?php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
+if (isset($_POST["path"]) || isset($_POST["email"])) {
+    if (!isset($_POST["email"])) {
+    echo "<h1>You will be installing " . $_POST["install"] . "</h1>";
+   ?>
+   1. Before we begin the installer you will need to  <a target="_blank" href="<?php echo $_POST["path"];?>">Click Here</a>.<br>
+   2. Buy the Product, after that you will need to download the files.
+   
+   <form method ="POST" action="#" enctype="multipart/form-data">
+       <input type="hidden" name="email" >
+      <label>3.Please upload the file you downloaded: <input type="file" name="zip_file" /></label>
+      <input type="submit" value="Install Now">
+<br />
+   </form>
+   <?php
+    } else {
+        $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        ?>
+        <h1>Starting Installation</h1>
+        <?php
+        echo "Uploading file...";
+        $target_dir = "plugins/";
+   $target_file = $target_dir . basename($_FILES["zip_file"]["name"]);
+   move_uploaded_file($_FILES["zip_file"]["tmp_name"], $target_file);
+   echo "<br>The file has been uploaded successfully.<br>Extracting and Installing Plugin...";
+   $zip = new ZipArchive;
+$res = $zip->open($target_dir . basename($_FILES["zip_file"]["name"]));
+if ($res === TRUE) {
+  $zip->extractTo('plugins/');
+  $zip->close();
+  unlink($target_dir . basename($_FILES["zip_file"]["name"]));
+  echo '<br>The plugin has been install successfully.';
+} else {
+  echo '<br>An Unexpected Error has Happened. Please Try Again.';
+}
+
+        ?>
+        <li><a href="<?php echo $actual_link; ?>&p=plugins">Back to <?php echo $this->lang->line('features'); ?></a></li>
+        <?php
+    }
+} else {
 ?>
 
 <style>
@@ -67,7 +107,7 @@ foreach ($each->{"products"} as $plugin)
     } else {
     echo  "<td>" . $plugin->{"wholesale_price"}  . "</td>";
     }
-    echo "<td><a href='http://www.tecflare.com/store/home/" . $plugin->{"id"} . "-" . $plugin->{"link_rewrite"} . ".html'>Download Now</a></td>";
+    echo "<td><form method='POST' action=''><input type='submit' value='Download Now'><input type='hidden' name='install' value='" .$plugin->{"name"} ."'><input type='hidden' name='path' value='http://www.tecflare.com/store/home/" . $plugin->{"id"} . "-" . $plugin->{"link_rewrite"} . ".html'></form></td>";
      echo ' </tr>';
     
 }
@@ -78,3 +118,6 @@ foreach ($each->{"products"} as $plugin)
     </tbody>
   </table>
 <a href="http://www.tecflare.com/store/contact-us">Submit your Plugin</a>
+<?php
+}
+?>
