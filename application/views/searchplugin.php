@@ -58,16 +58,17 @@ if ($res === TRUE) {
     background:transparent;
 }
 </style>
-<form method="POST" action="#">
+<form method="GET" action="http://www.tecflare.com/store/search">
 <div class="container">
 	<div class="row">
         <div class="col-sm-6 col-sm-offset-3">
             <div id="imaginary_container"> 
                 <div class="input-group stylish-input-group">
-                    <input type="text" class="form-control" name="search" placeholder="Search" >
+                    <input type="hidden" name="controller" value="search" /> <input type="hidden" name="orderby" value="position" /> <input type="hidden" name="orderway" value="desc" />
+                    <input type="text" class="form-control" name="search_query" placeholder="Search" >
                     <span class="input-group-addon">
                         <button type="submit">
-                            <span class="glyphicon glyphicon-search"></span>
+                            <div style="color:black">SEARCH</div>
                         </button>  
                     </span>
                 </div>

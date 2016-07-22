@@ -2,6 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 ?>
+Need Web Hosting?? Visit http://abit.cu.cc/signup.php!
+<footer>Copyright &copy; Tecflare All Rights Reserved</footer>
   </div>
 
 </div>
