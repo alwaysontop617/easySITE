@@ -66,20 +66,22 @@ input {
   <!-- Modal content -->
   <div class="modal-content">
              <?php
-     $key=file_get_contents(file_get_contents("data/licence"));
+     $key=file_get_contents("data/licence");
     $LICENSE_SERV="http://flare.miscy.net/server/check.php?key=";
     $licserv = "$LICENSE_SERV$key";
 
-    $license = htmlspecialchars(file_get_contents($licserv)); 
+    $license = file_get_contents($licserv); 
     
     if ($license == "INVALID") { 
 ?>
-<div class="alert alert-danger">This copy is not licenced.</div>
+<div class="alert alert-danger">This copy that was supposed to be licenced to <?php echo file_get_contents("data/name"); ?> is not valid or licenced.</div>
 <?php
 
 
       
    } else {
-
+?>
+<div class="alert alert-success">This copy is licenced to <?php echo file_get_contents("data/name"); ?> from <b>Orion</b>.</div>
+<?php
 }
 ?>
