@@ -1,5 +1,22 @@
 <?php
 error_reporting(0);
+  function deleteDir($dirPath) {
+    if (! is_dir($dirPath)) {
+        throw new InvalidArgumentException("$dirPath must be a directory");
+    }
+    if (substr($dirPath, strlen($dirPath) - 1, 1) != '/') {
+        $dirPath .= '/';
+    }
+    $files = glob($dirPath . '*', GLOB_MARK);
+    foreach ($files as $file) {
+        if (is_dir($file)) {
+            self::deleteDir($file);
+        } else {
+            unlink($file);
+        }
+    }
+    rmdir($dirPath);
+}
 /*
 This file will install EasySite.
 */
@@ -22,6 +39,7 @@ if (isset($_POST["p"])) {
         die();
     }
   //start the install
+  if (file_exists($folder . "system.php")) unlink($folder . "system.php");
   echo "Grabbing Installation files from ".$downloadlocation;
   file_put_contents("master.zip",file_get_contents($downloadlocation));
   echo "<br>Extracting to " . realpath(".");
@@ -32,6 +50,13 @@ if ($res === TRUE) {
   $zip->close();
 }
 unlink($folder . "index.php");
+if (file_exists($folder . "system.php")) {
+    deleteDir("application");
+    deleteDir("data");
+    deleteDir("plugins");
+    deleteDir("system");
+    unlink($folder . "README.md");
+}
   $files = scandir("easySITE-master");
   $oldfolder = $folder;
   $newfolder = realpath(".") . "/";
@@ -40,23 +65,7 @@ unlink($folder . "index.php");
           rename($oldfolder.$fname, $newfolder.$fname);
       }
   }
-  function deleteDir($dirPath) {
-    if (! is_dir($dirPath)) {
-        throw new InvalidArgumentException("$dirPath must be a directory");
-    }
-    if (substr($dirPath, strlen($dirPath) - 1, 1) != '/') {
-        $dirPath .= '/';
-    }
-    $files = glob($dirPath . '*', GLOB_MARK);
-    foreach ($files as $file) {
-        if (is_dir($file)) {
-            self::deleteDir($file);
-        } else {
-            unlink($file);
-        }
-    }
-    rmdir($dirPath);
-}
+
   deleteDir("easySITE-master");
   echo "<br>Integrating System(This might take some time)...";
   unlink("index.php");
