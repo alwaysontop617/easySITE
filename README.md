@@ -24,4 +24,5 @@ To install for wordpress, please READ THESE instructions.
 
 ##Screenshots
 ![plugins](https://i.imgsafe.org/000225146d.png)
+![Get new Plugins](https://s32.postimg.org/ys4wll2np/screenshot.png)
 ![backups](https://i.imgsafe.org/0012917054.png)

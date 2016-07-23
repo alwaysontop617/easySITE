@@ -65,3 +65,21 @@ input {
 
   <!-- Modal content -->
   <div class="modal-content">
+             <?php
+     $key=file_get_contents(file_get_contents("data/licence"));
+    $LICENSE_SERV="http://flare.miscy.net/server/check.php?key=";
+    $licserv = "$LICENSE_SERV$key";
+
+    $license = htmlspecialchars(file_get_contents($licserv)); 
+    
+    if ($license == "INVALID") { 
+?>
+<div class="alert alert-danger">This copy is not licenced.</div>
+<?php
+
+
+      
+   } else {
+
+}
+?>

@@ -1,4 +1,7 @@
-
+<?php
+//easy access
+require ("system.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +43,3 @@
 
 </body>
 </html>
-<?php
-//easy access
-require ("system.php");
-?>
