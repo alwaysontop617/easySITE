@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  }
 ?>
 <Center>
-<form method="post" action="#">
+<form method="post" action="">
 <div class="alert alert-info" role="alert">
      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
   <?php echo $this->lang->line('infologin'); ?>
