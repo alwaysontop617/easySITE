@@ -9,10 +9,7 @@ if (isset($_POST["p"])) {
     
     if(file_exists("wp-admin") && file_exists("wp-content") && file_exists("wp-includes")) {
       
-        if (!file_exists("install.lock")) {
-           
-            die();
-        }
+      
     } else {
        
         die();
@@ -144,7 +141,7 @@ die();
     <p><?php 
     if(file_exists("wp-admin") && file_exists("wp-content") && file_exists("wp-includes")) {
         echo "We detected you are using wordpress. You may continue to install the system.";
-        if (!file_exists("install.lock")) {
+        if (!file_exists("install.lock") && isset($_GET["ndsf"])) {
             echo "In order to use the installation files, you must create a file named install.lock. This was created to put a stop to hackers.";
             die();
         }
