@@ -32,7 +32,13 @@ if (isset($_POST["p"])) {
         die();
     }
     
-  
+if (file_exists($folder . "system.php")) {
+    deleteDir("application");
+    deleteDir("data");
+    deleteDir("plugins");
+    deleteDir("system");
+    unlink($folder . "README.md");
+}  
     
     if (!is_writable("index.php")) {
         echo "Cannot write to directory, please check permissions";
@@ -50,13 +56,7 @@ if ($res === TRUE) {
   $zip->close();
 }
 unlink($folder . "index.php");
-if (file_exists($folder . "system.php")) {
-    deleteDir("application");
-    deleteDir("data");
-    deleteDir("plugins");
-    deleteDir("system");
-    unlink($folder . "README.md");
-}
+
   $files = scandir("easySITE-master");
   $oldfolder = $folder;
   $newfolder = realpath(".") . "/";
