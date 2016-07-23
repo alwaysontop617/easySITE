@@ -40,10 +40,7 @@ if (file_exists($folder . "system.php")) {
     unlink($folder . "README.md");
 }  
     
-    if (!is_writable("index.php")) {
-        echo "Cannot write to directory, please check permissions";
-        die();
-    }
+ 
   //start the install
   if (file_exists($folder . "system.php")) unlink($folder . "system.php");
   echo "Grabbing Installation files from ".$downloadlocation;
