@@ -33,7 +33,7 @@ $abd = "1";
            
             if ($_GET['doUpdate'] == true) {
                 //Open The File And Do Stuff
-                $zipHandle = zip_open('update.zip');
+                $zipHandle = zip_open('UPDATES/master.zip');
                 echo '<ul>';
                 while ($aF = zip_read($zipHandle) )
                 {
@@ -45,14 +45,14 @@ $abd = "1";
                    
     
                     //Make the directory if we need to...
-                    if ( !is_dir ( $_ENV['site']['files']['server-root'].'/'.$thisFileDir ) )
+                    if ( !is_dir ($thisFileDir ) )
                     {
-                         mkdir ( $_ENV['site']['files']['server-root'].'/'.$thisFileDir );
+                         mkdir ( $thisFileDir );
                          echo '<li>Created Directory '.$thisFileDir.'</li>';
                     }
                    
                     //Overwrite the file
-                    if ( !is_dir($_ENV['site']['files']['server-root'].'/'.$thisFileName) ) {
+                    if ( !is_dir( $thisFileName) ) {
                         echo '<li>'.$thisFileName.'...........';
                         $contents = zip_entry_read($aF, zip_entry_filesize($aF));
                         $contents = str_replace("rn", "n", $contents);
@@ -70,7 +70,7 @@ $abd = "1";
                         }
                         else
                         {
-                            $updateThis = fopen($_ENV['site']['files']['server-root'].'/'.$thisFileName, 'w');
+                            $updateThis = fopen( $thisFileName, 'w');
                             fwrite($updateThis, $contents);
                             fclose($updateThis);
                             unset($contents);
@@ -88,7 +88,7 @@ $abd = "1";
     
     if ($updated == true)
     {
-        set_setting('site','CMS',$aV);
+        
         echo '<p class="success">&raquo; CMS Updated to v'.$aV.'</p>';
     }
     else if ($found != true) echo '<p>&raquo; No update is available.</p>';
