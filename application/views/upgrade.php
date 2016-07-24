@@ -81,7 +81,7 @@ $abd = "1";
                 echo '</ul>';
                 $updated = TRUE;
             }
-            else echo '<p>Update ready. <a href="' . $actual_link. '?doUpdate=true">&raquo; Install Now?</a></p>';
+            else echo '<p>Update ready. <a href="' . $actual_link. '&doUpdate=true">&raquo; Install Now?</a></p>';
             break;
         }
     }
