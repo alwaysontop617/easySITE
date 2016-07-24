@@ -45,10 +45,10 @@ $abd = "1";
                    
     
                     //Make the directory if we need to...
-                    if ( !is_dir ($thisFileDir ) )
+                    if ( !is_dir ( "../" . $thisFileDir ) )
                     {
-                         mkdir ( $thisFileDir );
-                         echo '<li>Created Directory '.$thisFileDir.'</li>';
+                         mkdir (  "../" . $thisFileDir );
+                         echo '<li>Created Directory '. "../" . $thisFileDir.'</li>';
                     }
                    
                     //Overwrite the file
