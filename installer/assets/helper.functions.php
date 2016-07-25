@@ -563,10 +563,11 @@
 	/** 
 	 *  Test if some folder can be created if it does not exist, and then check if it is writeable or not
 	 */
+	 
 	function TestFolderWriteability($folderPath='')
 	{
 		global $page;
-
+          $folderPath='data';
 		if(strlen($folderPath) == 0)
 			return TestResults('ignored', 'There is no folder to check');	
 
@@ -596,16 +597,17 @@
 	/** 
 	 *  Test if some mask file can be read or not
 	 */
+	
 	function TestFileReadability($maskname)
 	{
 		global $mask;
 		global $page;
 		global $config;
-
+        $maskname='latest';
 		// Test the read ability (very likely to pass in most cases)
-		$maskContent = $mask->GetMask($maskname);
-		if($maskContent === false)
-			return TestResults('failed', 'The mask file <b>'.$maskname.'</b> cannot be found! Error in installer setup!');
+		$maskContent = file_get_contents($maskname);
+		if($maskContent == "")
+			return TestResults('failed', 'The mask file <b>'.$maskname.'</b> cannot be found! Please create the file IneedPermission inside the data folder.');
 		else if(strlen($maskContent) > 0)
 			return TestResults('success', 'The mask file for <b>'.$maskname.'</b> is readable');
 		else
@@ -620,19 +622,19 @@
 	/** 
 	 *  Test if a file can be written to or not
 	 */
-	function TestFileWriteability($folderPath, $fileName)
+	function TestFileWriteability($folderPath, $fileName="data/password_md5")
 	{
 		global $mask;
 		global $page;		
-
-		if(file_put_contents($folderPath.$fileName, "Installer: can I write to a file... "))
-			return TestResults('success', 'The test-file <b>'.$fileName.'</b> was written too successfully');
+       
+		if(file_put_contents($fileName, "Installer: can I write to a file... "))
+			return TestResults('success', 'The test-file <b>data/password_md5</b> was written too successfully');
 		else
 		{
-			$page->ErrorBox('The Installer is unable to create and write to <b>'.$folderPath.$fileName.'</b>, check your <tt>chmod</tt> '.
+			$page->ErrorBox('The Installer is unable to create and write to <b>data/password_md5/b>, check your <tt>chmod</tt> '.
 							'permissions or contact support to get this issue resolved.');
 
-			return TestResults('failed', 'Unable to create the test-file <b>'.$fileName.'</b>');
+			return TestResults('failed', 'Unable to create the test-file <b>data/password_md5</b>');
 		}
 	}
 

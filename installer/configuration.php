@@ -140,7 +140,7 @@
 	STEP_IOFILES => array(
 		'title'        =>  'File Permissions',
 		'enabled'      =>  true,
-	
+	   
 		),
 
 
@@ -158,6 +158,7 @@
 		'title'        =>  'Terms Of Use Agreement',
 		'enabled'      =>  true,
 		'maskname'     =>  'terms_of_use.txt',
+		
 		),
 
 
