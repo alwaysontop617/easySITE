@@ -85,3 +85,24 @@ input {
 <?php
 }
 ?>
+<?php
+if ($license == "INVALID") {
+if ($_GET["p"] != "Licence") {
+$folders = scandir("plugins");
+$pl = 0;
+foreach ($folders as $plugin) {
+    $pl = $pl . "1";
+}
+if ($pl == "011111") {
+    include("application/views/panel.php");
+    ?>
+    
+    <h1>The free VERSION has expired.</h1>
+    <p>If you would like to continue using this application please activate it.</p>
+    <p>You can buy the full version for $13.00. Its a great offer so hurry and</p>
+    <p>and activate the server.</p>
+    <?php
+    include("application/views/bottom_modal.php");
+    die();
+}}}
+?>

@@ -37,9 +37,10 @@ if (isset($_POST["deactivate"])) {
     <tbody>
 <?php
 $folders = scandir("plugins");
+$pl = 0;
 foreach ($folders as $plugin) {
     if ($plugin == "." || $plugin == "..") {} else {
-        
+        $pl += 1;
         if (!file_exists("data/" . $plugin)) {
             file_put_contents("data/" . $plugin,"false");
         }
@@ -74,4 +75,49 @@ foreach ($folders as $plugin) {
  
     </tbody>
   </table>
-             
+             Free Version Limit
+             <?php
+             if ($pl == "0") {
+             ?>
+<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="0"
+  aria-valuemin="0" aria-valuemax="100" style="width:0%">
+    <span class="sr-only">0% Complete</span>
+  </div>
+</div>
+<?php
+}
+?>
+         <?php
+          $key=file_get_contents("data/licence");
+           $LICENSE_SERV="http://flare.miscy.net/server/check.php?key=";
+    $licserv = "$LICENSE_SERV$key";
+
+    $license = file_get_contents($licserv); 
+    
+
+         if ($license == "INVALID") {
+             if ($pl == "1") {
+             ?>
+<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="25"
+  aria-valuemin="25" aria-valuemax="100" style="width:25%">
+    <span class="sr-only">25% Complete</span>
+  </div>
+</div>
+<?php
+}
+?>
+      <?php
+             if ($pl == "2") {
+             ?>
+<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="50"
+  aria-valuemin="50" aria-valuemax="100" style="width:50%">
+    <span class="sr-only">50% Complete</span>
+  </div>
+</div>
+<?php
+}
+}
+?>
