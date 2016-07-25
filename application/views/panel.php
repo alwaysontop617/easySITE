@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <li><a  " href="<?php echo $actual_link; ?>&p=welcome"><h3><?php echo $this->lang->line('easysite'); ?></h3></a></li>
     <li><a class="btn btn-primary" href="#"><?php echo $this->lang->line('sint'); ?></a></li>
     <li><a class="btn btn-primary" href="<?php echo $actual_link; ?>&p=backup"><?php echo $this->lang->line('backup'); ?></a></li>
-    
+    <li><a class="btn btn-primary" href="<?php echo $actual_link; ?>&p=upgrade">Updates</a></li>
                  <?php
      $key=file_get_contents("data/licence");
     $LICENSE_SERV="http://flare.miscy.net/server/check.php?key=";

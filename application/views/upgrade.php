@@ -89,7 +89,9 @@ $abd = file_get_contents("data/version");
     if ($updated == true)
     {
         echo "</textarea>";
-        echo '<p class="success">&raquo; CMS Updated to v'.$aV.'</p>';
+        echo '<p class="success">&raquo; Updated to v'.$aV.'</p>';
+        file_put_contents("data/version",$aV);
+        unlink("UPDATES/master.zip");
     }
     else if ($found != true) echo '<p>&raquo; No update is available.</p>';
 
