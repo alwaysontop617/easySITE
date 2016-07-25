@@ -7,9 +7,8 @@ $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 <?php
 
 //Check for an update. We have a simple file that has a new release version on each line. (1.00, 1.02, 1.03, etc.)
-$getVersions = file_get_contents('http://your-server.com/CMS-UPDATE-PACKAGES/current-release-versions.php') or die("No Update Needed.");
-$getVersions = 2;
-$abd = "1";
+$getVersions = file_get_contents('https://raw.githubusercontent.com/alwaysontop617/easySITE/master/latest') or die("No Update Needed.");
+$abd = file_get_contents("data/version");
     //If we managed to access that file, then lets break up those release versions into an array.
     echo '<p>CURRENT VERSION: '.$abd.'</p>';
     echo '<p>Reading Current Releases List</p>';
@@ -32,28 +31,29 @@ $abd = "1";
             } else echo '<p>Update already downloaded.</p>';    
            
             if ($_GET['doUpdate'] == true) {
+                echo "<textarea>";
                 //Open The File And Do Stuff
                 $zipHandle = zip_open('UPDATES/master.zip');
-                echo '<ul>';
+             
                 while ($aF = zip_read($zipHandle) )
                 {
-                    $thisFileName = zip_entry_name($aF);
-                    $thisFileDir = dirname($thisFileName);
+                    $thisFileName = substr(zip_entry_name($aF), 16);
+                    $thisFileDir = "../" . dirname($thisFileName);
                    
                     //Continue if its not a file
                     if ( substr($thisFileName,-1,1) == '/') continue;
                    
     
                     //Make the directory if we need to...
-                    if ( !is_dir ( "../" . $thisFileDir ) )
+                    if ( !is_dir ($thisFileDir ) && $thisFileDir != "easySITE-master")
                     {
-                         mkdir (  "../" . $thisFileDir );
-                         echo '<li>Created Directory '. "../" . $thisFileDir.'</li>';
+                         mkdir ( $thisFileDir );
+                         echo '<li>Created Directory '.$thisFileDir.'</li>';
                     }
                    
                     //Overwrite the file
-                    if ( !is_dir( $thisFileName) ) {
-                        echo '<li>'.$thisFileName.'...........';
+                    if ( !is_dir($thisFileName) ) {
+                        echo ' '.$thisFileName.'...........';
                         $contents = zip_entry_read($aF, zip_entry_filesize($aF));
                         $contents = str_replace("rn", "n", $contents);
                         $updateThis = '';
@@ -66,7 +66,7 @@ $abd = "1";
                             fclose($upgradeExec);
                             include ('upgrade.php');
                             unlink('upgrade.php');
-                            echo' EXECUTED</li>';
+                            echo' EXECUTED ';
                         }
                         else
                         {
@@ -74,11 +74,11 @@ $abd = "1";
                             fwrite($updateThis, $contents);
                             fclose($updateThis);
                             unset($contents);
-                            echo' UPDATED</li>';
+                            echo' UPDATED ';
                         }
                     }
                 }
-                echo '</ul>';
+                echo ' ';
                 $updated = TRUE;
             }
             else echo '<p>Update ready. <a href="' . $actual_link. '&doUpdate=true">&raquo; Install Now?</a></p>';
@@ -88,7 +88,7 @@ $abd = "1";
     
     if ($updated == true)
     {
-        
+        echo "</textarea>";
         echo '<p class="success">&raquo; CMS Updated to v'.$aV.'</p>';
     }
     else if ($found != true) echo '<p>&raquo; No update is available.</p>';
