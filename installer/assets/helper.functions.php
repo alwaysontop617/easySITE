@@ -210,13 +210,17 @@
 	function IsSerialKeyMatch($serialInput)
 	{
 		/* IF YOU PLAN ON USING A WEBSERVICE FOR THIS - MODIFY THIS FUNCION TO DO SO!! */
+  $LICENSE_SERV="http://flare.miscy.net/server/check.php?key=";
+    $licserv = "$LICENSE_SERV$serialInput";
 
-		global $steps;
+    $license = file_get_contents($licserv); 
+    
+    if ($license == "INVALID") { 
+		return false;
+    } else {
+    	return true;
+    }
 
-		if(is_array($steps[STEP_SERIALKEY]['serialkeys']))
-			return in_array(strtoupper($serialInput), $steps[STEP_SERIALKEY]['serialkeys']);
-		else
-			return (strtoupper($serialInput) == strtoupper($steps[STEP_SERIALKEY]['serialkeys'])) ? true : false;
 	}
 
 
