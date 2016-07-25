@@ -345,5 +345,6 @@ var passwordChecker = new StrongPass("password", {
 });
 
 </script>
+
 </body>
 </html>
