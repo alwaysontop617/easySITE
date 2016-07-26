@@ -20,7 +20,7 @@
 	define('STEP_IOFILES',		'iopermission');
 	define('STEP_WELCOME',		'welcomemsg');
 	define('STEP_TERMSOFUSE',	'termsofuse');
-	define('STEP_SERIALKEY',	'serialkey');
+	define('STEP_SERIALKEY',	'serialkey&need');
 	define('STEP_TIMEZONE',		'timezones');
 	define('STEP_LANGUAGE',		'languages');
 	define('STEP_ADDEDINFO',	'additional');

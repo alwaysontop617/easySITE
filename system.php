@@ -1,16 +1,22 @@
 <?php
+session_start();
+if (file_exists("installer")) {
 if (!file_exists("data/installed")) {
-   define('INST_RUNSCRIPT', pathinfo(__FILE__, PATHINFO_BASENAME));
+if (isset($_SESSION["imokletmein"])) {
+	define('INST_RUNSCRIPT', pathinfo(__FILE__, PATHINFO_BASENAME));
     define('INST_BASEDIR',	 str_replace(INST_RUNSCRIPT, '', __FILE__));
     define('INST_RUNFOLDER', 'installer/');
 	define('INST_RUNINSTALL', 'installer.php');
     if (is_dir(INST_BASEDIR.INST_RUNFOLDER) && is_readable(INST_BASEDIR.INST_RUNFOLDER.INST_RUNINSTALL)) require(INST_BASEDIR.INST_RUNFOLDER.INST_RUNINSTALL);
 exit();
+}
+	include("installer/prep.php");
+   exit();
 	
 } else {
 	
 }
-
+}
 /**
  * CodeIgniter
  *
