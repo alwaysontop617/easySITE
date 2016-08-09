@@ -1,14 +1,16 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-if (isset($_POST["ok"])) {
+defined('BASEPATH') or exit('No direct script access allowed');
+if (isset($_POST['ok'])) {
     //form has been submitted
-    if (file_exists("bkup.zip")) unlink("bkup.zip");
+    if (file_exists('bkup.zip')) {
+        unlink('bkup.zip');
+    }
     // Get real path for our folder
 $rootPath = realpath('data');
 
 // Initialize archive object
 $zip = new ZipArchive();
-$zip->open('bkup.zip', ZipArchive::CREATE | ZipArchive::OVERWRITE);
+    $zip->open('bkup.zip', ZipArchive::CREATE | ZipArchive::OVERWRITE);
 
 // Create recursive directory iterator
 /** @var SplFileInfo[] $files */
@@ -17,11 +19,9 @@ $files = new RecursiveIteratorIterator(
     RecursiveIteratorIterator::LEAVES_ONLY
 );
 
-foreach ($files as $name => $file)
-{
-    // Skip directories (they would be added automatically)
-    if (!$file->isDir())
-    {
+    foreach ($files as $name => $file) {
+        // Skip directories (they would be added automatically)
+    if (!$file->isDir()) {
         // Get real and relative path for current file
         $filePath = $file->getRealPath();
         $relativePath = substr($filePath, strlen($rootPath) + 1);
@@ -29,23 +29,22 @@ foreach ($files as $name => $file)
         // Add current file to archive
         $zip->addFile($filePath, $relativePath);
     }
-}
+    }
 
 // Zip archive will be created only after closing object
 $zip->close();
 
     // or however you get the path
-    $yourfile = "bkup.zip";
+    $yourfile = 'bkup.zip';
 
     $file_name = basename($yourfile);
 
-    header("Content-Type: application/zip");
+    header('Content-Type: application/zip');
     header("Content-Disposition: attachment; filename=$file_name");
-    header("Content-Length: " . filesize($yourfile));
+    header('Content-Length: '.filesize($yourfile));
 
-    readfile($yourfile); 
-die();
-    
+    readfile($yourfile);
+    die();
 }
 ?>
 

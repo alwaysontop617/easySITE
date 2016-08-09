@@ -1,72 +1,71 @@
 <?php
 error_reporting(0);
-  function deleteDir($dirPath) {
-    if (! is_dir($dirPath)) {
-        throw new InvalidArgumentException("$dirPath must be a directory");
-    }
-    if (substr($dirPath, strlen($dirPath) - 1, 1) != '/') {
-        $dirPath .= '/';
-    }
-    $files = glob($dirPath . '*', GLOB_MARK);
-    foreach ($files as $file) {
-        if (is_dir($file)) {
-            self::deleteDir($file);
-        } else {
-            unlink($file);
-        }
-    }
-    rmdir($dirPath);
-}
+  function deleteDir($dirPath)
+  {
+      if (!is_dir($dirPath)) {
+          throw new InvalidArgumentException("$dirPath must be a directory");
+      }
+      if (substr($dirPath, strlen($dirPath) - 1, 1) != '/') {
+          $dirPath .= '/';
+      }
+      $files = glob($dirPath.'*', GLOB_MARK);
+      foreach ($files as $file) {
+          if (is_dir($file)) {
+              self::deleteDir($file);
+          } else {
+              unlink($file);
+          }
+      }
+      rmdir($dirPath);
+  }
 /*
 This file will install EasySite.
 */
-$downloadlocation = "https://github.com/alwaysontop617/easySITE/archive/master.zip";
-$folder = "easySITE-master/";
-if (isset($_POST["p"])) {
-    
-    if(file_exists("wp-admin") && file_exists("wp-content") && file_exists("wp-includes")) {
-      
-      
+$downloadlocation = 'https://github.com/alwaysontop617/easySITE/archive/master.zip';
+$folder = 'easySITE-master/';
+if (isset($_POST['p'])) {
+    if (file_exists('wp-admin') && file_exists('wp-content') && file_exists('wp-includes')) {
     } else {
-       
         die();
     }
-    
-if (file_exists($folder . "system.php")) {
-    deleteDir("application");
-    deleteDir("data");
-    deleteDir("plugins");
-    deleteDir("system");
-    unlink($folder . "README.md");
-}  
-    
- 
+
+    if (file_exists($folder.'system.php')) {
+        deleteDir('application');
+        deleteDir('data');
+        deleteDir('plugins');
+        deleteDir('system');
+        unlink($folder.'README.md');
+    }
+
+
   //start the install
-  if (file_exists($folder . "system.php")) unlink($folder . "system.php");
-  echo "Grabbing Installation files from ".$downloadlocation;
-  file_put_contents("master.zip",file_get_contents($downloadlocation));
-  echo "<br>Extracting to " . realpath(".");
-  $zip = new ZipArchive;
-$res = $zip->open('master.zip');
-if ($res === TRUE) {
-  $zip->extractTo(realpath("."));
-  $zip->close();
-}
-unlink($folder . "index.php");
-
-  $files = scandir("easySITE-master");
-  $oldfolder = $folder;
-  $newfolder = realpath(".") . "/";
-  foreach($files as $fname) {
-      if($fname != '.' && $fname != '..') {
-          rename($oldfolder.$fname, $newfolder.$fname);
-      }
+  if (file_exists($folder.'system.php')) {
+      unlink($folder.'system.php');
   }
+    echo 'Grabbing Installation files from '.$downloadlocation;
+    file_put_contents('master.zip', file_get_contents($downloadlocation));
+    echo '<br>Extracting to '.realpath('.');
+    $zip = new ZipArchive();
+    $res = $zip->open('master.zip');
+    if ($res === true) {
+        $zip->extractTo(realpath('.'));
+        $zip->close();
+    }
+    unlink($folder.'index.php');
 
-  deleteDir("easySITE-master");
-  echo "<br>Integrating System(This might take some time)...";
-  unlink("index.php");
-  $wordpressindex = "
+    $files = scandir('easySITE-master');
+    $oldfolder = $folder;
+    $newfolder = realpath('.').'/';
+    foreach ($files as $fname) {
+        if ($fname != '.' && $fname != '..') {
+            rename($oldfolder.$fname, $newfolder.$fname);
+        }
+    }
+
+    deleteDir('easySITE-master');
+    echo '<br>Integrating System(This might take some time)...';
+    unlink('index.php');
+    $wordpressindex = "
   <?php
 /**
  * Front to the WordPress application. This file doesn't do anything, but loads
@@ -94,8 +93,8 @@ require( dirname( __FILE__ ) . '/wp-blog-header.php' );
 require('system.php');
 die();
   ";
-  file_put_contents("index.php",$wordpressindex);
-  echo "<br>The installation is complete, you may now check it out by adding the ?adm123 tag!!";
+    file_put_contents('index.php', $wordpressindex);
+    echo '<br>The installation is complete, you may now check it out by adding the ?adm123 tag!!';
 }
 ?>
 
@@ -145,17 +144,17 @@ die();
     <h1>Installation</h1>
     
     <p><?php 
-    if(file_exists("wp-admin") && file_exists("wp-content") && file_exists("wp-includes")) {
-        echo "We detected you are using wordpress. You may continue to install the system.";
-        if (!file_exists("install.lock") && isset($_GET["ndsf"])) {
-            echo "In order to use the installation files, you must create a file named install.lock. This was created to put a stop to hackers.";
+    if (file_exists('wp-admin') && file_exists('wp-content') && file_exists('wp-includes')) {
+        echo 'We detected you are using wordpress. You may continue to install the system.';
+        if (!file_exists('install.lock') && isset($_GET['ndsf'])) {
+            echo 'In order to use the installation files, you must create a file named install.lock. This was created to put a stop to hackers.';
             die();
         }
     } else {
-        echo "This system cannot find wordpress unsupported, please place this file in your wordpress directory!!";
+        echo 'This system cannot find wordpress unsupported, please place this file in your wordpress directory!!';
         die();
     }
-    
+
     ?></p>
     <p><form method="POST" action="#"><input type="submit" name="p" value="Start Installation"></form></p>
 </div>

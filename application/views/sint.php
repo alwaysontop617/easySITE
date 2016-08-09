@@ -1,31 +1,31 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-if (isset($_POST["twitter"])) {
-    $socialnet = "twitter";
-    $value = $_POST["twitter"];
-    file_put_contents("data/" . $socialnet,$value);
-       $socialnet = "facebook";
-    $value = $_POST["facebook"];
-    file_put_contents("data/" . $socialnet,$value);
-       $socialnet = "youtube";
-    $value = $_POST["youtube"];
-    file_put_contents("data/" . $socialnet,$value);
-       $socialnet = "tumblr";
-    $value = $_POST["tumblr"];
-    file_put_contents("data/" . $socialnet,$value);
-       $socialnet = "rss";
-    $value = $_POST["rss"];
-    file_put_contents("data/" . $socialnet,$value);
-   $socialnet = "youtube";
-    $value = $_POST["youtube"];
-    
-    file_put_contents("data/" . $socialnet,$value);
-       $socialnet = "pinterest";
-    $value = $_POST["pinterest"];
-    file_put_contents("data/" . $socialnet,$value);
-       $socialnet = "wordpress";
-    $value = $_POST["wordpress"];
-    file_put_contents("data/" . $socialnet,$value);
+defined('BASEPATH') or exit('No direct script access allowed');
+if (isset($_POST['twitter'])) {
+    $socialnet = 'twitter';
+    $value = $_POST['twitter'];
+    file_put_contents('data/'.$socialnet, $value);
+    $socialnet = 'facebook';
+    $value = $_POST['facebook'];
+    file_put_contents('data/'.$socialnet, $value);
+    $socialnet = 'youtube';
+    $value = $_POST['youtube'];
+    file_put_contents('data/'.$socialnet, $value);
+    $socialnet = 'tumblr';
+    $value = $_POST['tumblr'];
+    file_put_contents('data/'.$socialnet, $value);
+    $socialnet = 'rss';
+    $value = $_POST['rss'];
+    file_put_contents('data/'.$socialnet, $value);
+    $socialnet = 'youtube';
+    $value = $_POST['youtube'];
+
+    file_put_contents('data/'.$socialnet, $value);
+    $socialnet = 'pinterest';
+    $value = $_POST['pinterest'];
+    file_put_contents('data/'.$socialnet, $value);
+    $socialnet = 'wordpress';
+    $value = $_POST['wordpress'];
+    file_put_contents('data/'.$socialnet, $value);
 }
 ?>
 <form method="POST" action="#">

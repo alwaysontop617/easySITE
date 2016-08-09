@@ -1,9 +1,9 @@
 <?php
 //Plugin
-if (file_get_contents("data/mmode") == "true" && !$this->session->userdata('logged_in')) {
-   $this->load->view("top_modal");
-   echo '<h1>Site is on maintainance mode<h1>The developer is currently busy.<br> Please login <a href="?' . file_get_contents("data/admin_url") . '">here</a>';
-   $this->load->view("bottom_modal");
+if (file_get_contents('data/mmode') == 'true' && !$this->session->userdata('logged_in')) {
+    $this->load->view('top_modal');
+    echo '<h1>Site is on maintainance mode<h1>The developer is currently busy.<br> Please login <a href="?'.file_get_contents('data/admin_url').'">here</a>';
+    $this->load->view('bottom_modal');
 }
 ?>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -58,28 +58,28 @@ line-height: 43px;
 </style>
 <div class="sticky-container">
 <ul class="sticky">
-<li> <h2>F</h2><a type="button" class="btn btn-small" href="<?php echo file_get_contents("data/facebook");?>"><span style="width:32%; height:32%;" class="fa fa-facebook fa-2x" aria-hidden="true"></span>
+<li> <h2>F</h2><a type="button" class="btn btn-small" href="<?php echo file_get_contents('data/facebook'); ?>"><span style="width:32%; height:32%;" class="fa fa-facebook fa-2x" aria-hidden="true"></span>
 <p>Facebook</p></a>
 </li>
-<li><h2>T</h2> <a type="button" class="btn btn-small" href="<?php echo file_get_contents("data/twitter");?>"><span style="width:32%; height:32%;" class="fa fa-twitter fa-2x" aria-hidden="true"></span>
+<li><h2>T</h2> <a type="button" class="btn btn-small" href="<?php echo file_get_contents('data/twitter'); ?>"><span style="width:32%; height:32%;" class="fa fa-twitter fa-2x" aria-hidden="true"></span>
 <p>Twitter</p></a>
 </li>
-<li><h2>P</h2> <a type="button" class="btn btn-small" href="<?php echo file_get_contents("data/pinterest");?>"><span style="width:32%; height:32%;" class="fa fa-pinterest fa-2x" aria-hidden="true"></span>
+<li><h2>P</h2> <a type="button" class="btn btn-small" href="<?php echo file_get_contents('data/pinterest'); ?>"><span style="width:32%; height:32%;" class="fa fa-pinterest fa-2x" aria-hidden="true"></span>
 <p>Pinterest</p></a>
 </li>
-<li><h2>L</h2> <a type="button" class="btn btn-small" href="<?php echo file_get_contents("data/linkedin");?>"><span style="width:32%; height:32%;" class="fa fa-linkedin fa-2x" aria-hidden="true"></span>
+<li><h2>L</h2> <a type="button" class="btn btn-small" href="<?php echo file_get_contents('data/linkedin'); ?>"><span style="width:32%; height:32%;" class="fa fa-linkedin fa-2x" aria-hidden="true"></span>
 <p>Linkedin</p></a>
 </li>
-<li><h2>R</h2> <a type="button" class="btn btn-small" href="<?php echo file_get_contents("data/rss");?>"><span style="width:32%; height:32%;" class="fa fa-rss fa-2x" aria-hidden="true"></span>
+<li><h2>R</h2> <a type="button" class="btn btn-small" href="<?php echo file_get_contents('data/rss'); ?>"><span style="width:32%; height:32%;" class="fa fa-rss fa-2x" aria-hidden="true"></span>
 <p>RSS</p></a>
 </li>
-<li><h2>T</h2> <a type="button" class="btn btn-small" href="<?php echo file_get_contents("data/tumblr");?>"><span style="width:32%; height:32%;" class="fa fa-tumblr fa-2x" aria-hidden="true"></span>
+<li><h2>T</h2> <a type="button" class="btn btn-small" href="<?php echo file_get_contents('data/tumblr'); ?>"><span style="width:32%; height:32%;" class="fa fa-tumblr fa-2x" aria-hidden="true"></span>
 <p>Tumblr</p></a>
 </li>
-<li><h2>W</h2> <a type="button" class="btn btn-small" href="<?php echo file_get_contents("data/wordpress");?>"><span style="width:32%; height:32%;" class="fa fa-wordpress fa-2x" aria-hidden="true"></span>
+<li><h2>W</h2> <a type="button" class="btn btn-small" href="<?php echo file_get_contents('data/wordpress'); ?>"><span style="width:32%; height:32%;" class="fa fa-wordpress fa-2x" aria-hidden="true"></span>
 <p>Wordpress</p></a>
 </li>
-<li> <h2>Y</h2><a type="button" class="btn btn-small"href="<?php echo file_get_contents("data/youtube");?>"><span style="width:32%; height:32%;" class="fa fa-youtube fa-2x" aria-hidden="true"></span>
+<li> <h2>Y</h2><a type="button" class="btn btn-small"href="<?php echo file_get_contents('data/youtube'); ?>"><span style="width:32%; height:32%;" class="fa fa-youtube fa-2x" aria-hidden="true"></span>
 <p>Youtube</p></a>
 <li> <h2></h2>
 </li>

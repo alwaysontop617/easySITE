@@ -1,5 +1,15 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+
+/*
+ * Tecflare Corporation Technology
+ *
+ * Copyright (c) Tecflare All Rights reserved
+ *
+ * This code is copyrighted to Tecflare!!
+ *
+ */
+
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -10,10 +20,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |	See: https://codeigniter.com/user_guide/libraries/caching.html#memcached
 |
 */
-$config = array(
-	'default' => array(
-		'hostname' => '127.0.0.1',
-		'port'     => '11211',
-		'weight'   => '1',
-	),
-);
+$config = [
+    'default' => [
+        'hostname' => '127.0.0.1',
+        'port'     => '11211',
+        'weight'   => '1',
+    ],
+];

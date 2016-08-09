@@ -1,6 +1,6 @@
 <?php
 //easy access
-require ("system.php");
+require 'system.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,28 +1,26 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-if (isset($_POST["phone"])) {
-    $key = $_POST["phone"] . "-" . $_POST["phonea"] . "-" .  $_POST["phoneb"] . "-" . $_POST["phonec"];
-              
+defined('BASEPATH') or exit('No direct script access allowed');
+if (isset($_POST['phone'])) {
+    $key = $_POST['phone'].'-'.$_POST['phonea'].'-'.$_POST['phoneb'].'-'.$_POST['phonec'];
 
-    $LICENSE_SERV="http://flare.miscy.net/server/check.php?key=";
+
+    $LICENSE_SERV = 'http://flare.miscy.net/server/check.php?key=';
     $licserv = "$LICENSE_SERV$key";
 
-    $license = file_get_contents($licserv); 
-    
-    if ($license == "INVALID") { 
-?>
+    $license = file_get_contents($licserv);
+
+    if ($license == 'INVALID') {
+        ?>
 <div class="alert alert-danger">Incorrect Licence Key.</div>
 
 <?php
 
-
-      
-   } else {
-file_put_contents("data/licence",$key);
-?>
+    } else {
+        file_put_contents('data/licence', $key); ?>
 <div class="alert alert-success">Correct Licence Key.</div>
 <?php
-}
+
+    }
 }
 ?>
 <h2>Licence this Application 该许可证申请 

@@ -1,5 +1,15 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+
+/*
+ * Tecflare Corporation Technology
+ *
+ * Copyright (c) Tecflare All Rights reserved
+ *
+ * This code is copyrighted to Tecflare!!
+ *
+ */
+
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 |--------------------------------------------------------------------------
@@ -11,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | and disable it back when you're done.
 |
 */
-$config['migration_enabled'] = FALSE;
+$config['migration_enabled'] = false;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +67,7 @@ $config['migration_table'] = 'migrations';
 | in your code to have the latest migration.
 |
 */
-$config['migration_auto_latest'] = FALSE;
+$config['migration_auto_latest'] = false;
 
 /*
 |--------------------------------------------------------------------------
