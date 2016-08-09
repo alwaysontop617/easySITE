@@ -1,4 +1,9 @@
 # easySITE
+## This has nothing to do with wordpress
+
+Our software can integrate with almost every platform, even if you just have a plain html website. This project will improve your site by adding many features. The best part about our script is we will generate an htaccess best for your site to make your site very fast. We also have a maintainance mode page, and a full blown plugin system allowing you to expand your features.
+
+If you have a wordpress site you can also use easySITE, we are currently releasing support for joomla next. Our system will not act like a pluin for wordpress, it completely rewrites the index.php of that wordpress site.
 easySITE can be imported into any website, its fast and light weight.
 
 Lets make the IOT a better place.
