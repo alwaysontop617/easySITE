@@ -1,6 +1,8 @@
-# easySITE
+# Welcome to easySITE!!
 [![StyleCI](https://styleci.io/repos/60135146/shield)](https://styleci.io/repos/60135146)
 ## This has nothing to do with wordpress
+
+Easysite is a very lightweight Content Management System or CMS for tiny websites. Our software also works with lare websites using 3rd party applications like wordpress. A standard webiste running PHP5.4+ is all you need to install and use it, you do not even need wordpress, or a database.
 
 Our software can integrate with almost every platform, even if you just have a plain html website. This project will improve your site by adding many features. The best part about our script is we will generate an htaccess best for your site to make your site very fast. We also have a maintainance mode page, and a full blown plugin system allowing you to expand your features.
 
@@ -11,11 +13,25 @@ Lets make the IOT a better place.
 ## Installation of Wordpress
 To install for wordpress, please READ THESE instructions.
 1. Do not copy any of the files to wordpress
+
 2. Visit this url, and download this file https://raw.githubusercontent.com/alwaysontop617/easySITE/master/wordpress.php.
+
 3. Make sure this FILE is in the wordpress directory, the installer will make sure though.
+
 4. Visit your website / wordpress.php and not the main wordpress page
+
 5. Start the Installation.
+
 6. After that delete the wordpress.php file for security reasons.
+
+## A normal Installation
+1. To install easySite on any normal website you will first need to make sure that all the pages in your website have a .php instead of a .html.
+
+2. Copy all of the easySite files to the index page of your website.
+ 
+3. Add the simple php tag found in the index.php to your index.php
+
+4. Visit your webiste, and you are done.
 
 ##Features
 
