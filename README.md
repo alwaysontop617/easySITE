@@ -1,4 +1,5 @@
 # easySITE
+[![StyleCI](https://styleci.io/repos/60135146/shield)](https://styleci.io/repos/60135146)
 ## This has nothing to do with wordpress
 
 Our software can integrate with almost every platform, even if you just have a plain html website. This project will improve your site by adding many features. The best part about our script is we will generate an htaccess best for your site to make your site very fast. We also have a maintainance mode page, and a full blown plugin system allowing you to expand your features.
