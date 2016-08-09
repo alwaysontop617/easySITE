@@ -1,6 +1,6 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 ?>
 <!-- Latest compiled and minified CSS -->
@@ -66,43 +66,43 @@ input {
   <!-- Modal content -->
   <div class="modal-content">
              <?php
-     $key=file_get_contents("data/licence");
-    $LICENSE_SERV="http://flare.miscy.net/server/check.php?key=";
+     $key = file_get_contents('data/licence');
+    $LICENSE_SERV = 'http://flare.miscy.net/server/check.php?key=';
     $licserv = "$LICENSE_SERV$key";
 
-    $license = file_get_contents($licserv); 
-    
-    if ($license == "INVALID") { 
-?>
-<div class="alert alert-danger">This copy that was supposed to be licenced to <?php echo file_get_contents("data/name"); ?> is not valid or licenced.</div>
+    $license = file_get_contents($licserv);
+
+    if ($license == 'INVALID') {
+        ?>
+<div class="alert alert-danger">This copy that was supposed to be licenced to <?php echo file_get_contents('data/name'); ?> is not valid or licenced.</div>
 <?php
 
+    } else {
+        ?>
+<div class="alert alert-success">This copy is licenced to <?php echo file_get_contents('data/name'); ?> from <b>Orion</b>.</div>
+<?php
 
-      
-   } else {
-?>
-<div class="alert alert-success">This copy is licenced to <?php echo file_get_contents("data/name"); ?> from <b>Orion</b>.</div>
-<?php
-}
+    }
 ?>
 <?php
-if ($license == "INVALID") {
-if ($_GET["p"] != "Licence") {
-$folders = scandir("plugins");
-$pl = 0;
-foreach ($folders as $plugin) {
-    $pl = $pl . "1";
-}
-if ($pl == "011111") {
-    include("application/views/panel.php");
-    ?>
+if ($license == 'INVALID') {
+    if ($_GET['p'] != 'Licence') {
+        $folders = scandir('plugins');
+        $pl = 0;
+        foreach ($folders as $plugin) {
+            $pl = $pl.'1';
+        }
+        if ($pl == '011111') {
+            include 'application/views/panel.php'; ?>
     
     <h1>The free VERSION has expired.</h1>
     <p>If you would like to continue using this application please activate it.</p>
     <p>You can buy the full version for $13.00. Its a great offer so hurry and</p>
     <p>and activate the server.</p>
     <?php
-    include("application/views/bottom_modal.php");
-    die();
-}}}
+    include 'application/views/bottom_modal.php';
+            die();
+        }
+    }
+}
 ?>
