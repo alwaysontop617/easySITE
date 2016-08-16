@@ -1,4 +1,7 @@
 # Welcome to easySITE!!
+
+## NO ONE EVER DOWNLOADING THIS PROJECT SO THE DOWNLOADS SERVER HAS BEEN DISCONTINUED HOWEVER IF WE GET MORE DOWNLOADS WE WILL REOPEN THE SERVERS.
+
 [![StyleCI](https://styleci.io/repos/60135146/shield)](https://styleci.io/repos/60135146)
 ## This has nothing to do with wordpress
 
